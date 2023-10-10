@@ -5,6 +5,7 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.exam.exception.ResourceNotFoundException;
 import com.exam.model.Role;
 import com.exam.model.User;
 import com.exam.model.UserRole;
@@ -47,6 +48,29 @@ public class UserServiceImpl implements UserService {
 			local=this.userRepository.save(user);
 		}
 		return local;
+	}
+	@Override
+	public User getUser(String user) throws Exception {
+		return this.userRepository.findByUsername(user);
+	}
+	@Override
+	public void deleteUser(Long id) throws Exception {
+		this.userRepository.deleteById(id);
+		
+	}
+	@Override
+	public User updateUser(User user, Long id) throws Exception {
+		User user1=this.userRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("User","id",id));
+		user1.setId(id);
+		user1.setFirstname(user.getFirstname());
+		user1.setMiddlename(user.getMiddlename());
+		user1.setLastname(user.getLastname());
+		user1.setEmail(user.getEmail());
+		user1.setPassword(user.getPassword());
+		user1.setUsername(user.getUsername());
+		user1.setPhone(user.getPhone());
+		User updatedUser=this.userRepository.save(user1);
+		return updatedUser;
 	}
 
 }

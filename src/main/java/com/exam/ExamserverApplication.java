@@ -27,27 +27,27 @@ public class ExamserverApplication implements CommandLineRunner{
 		// TODO Auto-generated method stub
 		System.out.println("starting the code");
 		
-		User user=new User();
-		user.setFirstname("Roshan");
-		user.setMiddlename("Kumar");
-		user.setLastname("Singh");
-		user.setEmail("roshan@gmail.com");
-		user.setPassword("abc");
-		user.setUsername("rosh5");
-		Role role1=new Role();
-		
-		role1.setRoleName("ADMIN");
-		
-		Set<UserRole> userRoleSet=new HashSet<>();
-		UserRole userRole=new UserRole();
-		
-		userRole.setRole(role1);
-		userRole.setUser(user);
-		
-		userRoleSet.add(userRole);
-		
-		User user1=this.userService.createUser(user,userRoleSet);
-		
+//		User user=new User();
+//		user.setFirstname("Roshan");
+//		user.setMiddlename("Kumar");
+//		user.setLastname("Singh");
+//		user.setEmail("roshan@gmail.com");
+//		user.setPassword("abc");
+//		user.setUsername("rosh5");
+//		Role role1=new Role();
+//		
+//		role1.setRoleName("ADMIN");
+//		
+//		Set<UserRole> userRoleSet=new HashSet<>();
+//		UserRole userRole=new UserRole();
+//		
+//		userRole.setRole(role1);
+//		userRole.setUser(user);
+//		
+//		userRoleSet.add(userRole);
+//		
+//		User user1=this.userService.createUser(user,userRoleSet);
+//		
 	}
 
 }
